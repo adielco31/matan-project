@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>המבריק – הסרת ריחות מקצועית</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;600;700;900&display=swap');
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --gold: #c9a84c;
+      --gold-light: #e8c97e;
+      --dark: #0a0a0a;
+      --dark2: #111111;
+      --dark3: #1a1a1a;
+      --dark4: #222222;
+      --text: #f0f0f0;
+      --text-muted: #888;
+      --whatsapp: #25d366;
+      --whatsapp-dark: #1da851;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Heebo', sans-serif;
+      background-color: var(--dark);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem 1.5rem 3rem;
+      position: relative;
+      background:
+        radial-gradient(ellipse at 50% 0%, rgba(201,168,76,0.18) 0%, transparent 70%),
+        linear-gradient(180deg, #0d0d0d 0%, #0a0a0a 100%);
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 40px,
+          rgba(201,168,76,0.03) 40px,
+          rgba(201,168,76,0.03) 41px
+        ),
+        repeating-linear-gradient(
+          90deg,
+          transparent,
+          transparent 40px,
+          rgba(201,168,76,0.03) 40px,
+          rgba(201,168,76,0.03) 41px
+        );
+      pointer-events: none;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(201,168,76,0.12);
+      border: 1px solid rgba(201,168,76,0.3);
+      color: var(--gold-light);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
+      margin-bottom: 1.8rem;
+      position: relative;
+    }
+
+    .badge::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 6px var(--gold);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    .logo-wrap {
+      margin-bottom: 1rem;
+      position: relative;
+    }
+
+    .logo-icon {
+      font-size: 3.5rem;
+      filter: drop-shadow(0 0 20px rgba(201,168,76,0.5));
+      animation: floatIcon 4s ease-in-out infinite;
+    }
+
+    @keyframes floatIcon {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    h1 {
+      font-size: clamp(3rem, 14vw, 5rem);
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 50%, #a07830 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.5rem;
+      text-shadow: none;
+      position: relative;
+    }
+
+    .tagline {
+      font-size: clamp(1rem, 4.5vw, 1.3rem);
+      font-weight: 300;
+      color: #b0b0b0;
+      margin-bottom: 2.5rem;
+      line-height: 1.5;
+      max-width: 300px;
+    }
+
+    .tagline strong {
+      color: var(--gold-light);
+      font-weight: 600;
+    }
+
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      background: linear-gradient(135deg, #25d366, #1da851);
+      color: #fff;
+      font-family: 'Heebo', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      text-decoration: none;
+      padding: 1rem 2.2rem;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      box-shadow:
+        0 0 0 0 rgba(37,211,102,0.4),
+        0 8px 30px rgba(37,211,102,0.25);
+      transition: transform 0.2s, box-shadow 0.2s;
+      animation: ctaPulse 3s ease-in-out infinite;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-btn::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.15), transparent);
+      border-radius: inherit;
+    }
+
+    @keyframes ctaPulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(37,211,102,0.4), 0 8px 30px rgba(37,211,102,0.25); }
+      50% { box-shadow: 0 0 0 10px rgba(37,211,102,0), 0 8px 30px rgba(37,211,102,0.35); }
+    }
+
+    .cta-btn:active {
+      transform: scale(0.97);
+    }
+
+    .cta-btn svg {
+      width: 22px;
+      height: 22px;
+      flex-shrink: 0;
+    }
+
+    .cta-sub {
+      margin-top: 0.9rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .scroll-hint {
+      margin-top: 3rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      animation: fadeInUp 1s ease 1s both;
+    }
+
+    .scroll-hint span {
+      font-size: 1.2rem;
+      animation: bounce 2s ease-in-out infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(6px); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ─── DIVIDER ─── */
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 0 1.5rem;
+      opacity: 0.3;
+    }
+
+    /* ─── SECTION ─── */
+    section {
+      padding: 3rem 1.5rem;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      margin-bottom: 0.4rem;
+    }
+
+    .section-sub {
+      text-align: center;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+    }
+
+    /* ─── SERVICES ─── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.9rem;
+    }
+
+    .service-card {
+      background: var(--dark3);
+      border: 1px solid rgba(201,168,76,0.15);
+      border-radius: 16px;
+      padding: 1.2rem 1rem;
+      text-align: center;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .service-card:active {
+      transform: scale(0.98);
+    }
+
+    .service-card:first-child {
+      grid-column: 1 / -1;
+    }
+
+    .service-icon {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .service-name {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.3;
+    }
+
+    /* ─── HOW IT WORKS ─── */
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .step {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      background: var(--dark3);
+      border: 1px solid rgba(201,168,76,0.1);
+      border-radius: 16px;
+      padding: 1.2rem;
+    }
+
+    .step-num {
+      flex-shrink: 0;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold), #a07830);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 0.9rem;
+      color: var(--dark);
+    }
+
+    .step-text h3 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 0.2rem;
+      color: var(--text);
+    }
+
+    .step-text p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* ─── WHY ─── */
+    .why-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+
+    .why-item {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      background: var(--dark3);
+      border: 1px solid rgba(201,168,76,0.1);
+      border-radius: 12px;
+      padding: 0.9rem 1rem;
+      font-size: 0.9rem;
+    }
+
+    .why-icon {
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+
+    /* ─── OZONE HIGHLIGHT ─── */
+    .ozone-box {
+      background: linear-gradient(135deg, rgba(201,168,76,0.1), rgba(201,168,76,0.03));
+      border: 1px solid rgba(201,168,76,0.25);
+      border-radius: 20px;
+      padding: 1.8rem 1.4rem;
+      text-align: center;
+    }
+
+    .ozone-box .ozone-icon {
+      font-size: 3rem;
+      display: block;
+      margin-bottom: 0.8rem;
+    }
+
+    .ozone-box h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      margin-bottom: 0.6rem;
+    }
+
+    .ozone-box p {
+      font-size: 0.85rem;
+      color: #aaa;
+      line-height: 1.6;
+    }
+
+    /* ─── CTA BOTTOM ─── */
+    .cta-section {
+      background: linear-gradient(180deg, transparent, rgba(201,168,76,0.06));
+      padding: 2.5rem 1.5rem 3.5rem;
+      text-align: center;
+    }
+
+    .cta-section h2 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+      color: var(--text);
+    }
+
+    .cta-section h2 span {
+      color: var(--gold-light);
+    }
+
+    .cta-section p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 1.8rem;
+      line-height: 1.5;
+    }
+
+    .cta-section .cta-btn {
+      width: 100%;
+      max-width: 320px;
+      font-size: 1.2rem;
+      padding: 1.1rem 2rem;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      padding: 1.5rem;
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      font-size: 0.75rem;
+      color: #444;
+    }
+
+    footer span {
+      color: var(--gold);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="badge">טכנולוגיית אוזון מתקדמת</div>
+
+    <div class="logo-wrap">
+      <div class="logo-icon">✨</div>
+    </div>
+
+    <h1>המבריק</h1>
+    <p class="tagline">הסרת <strong>ריחות רעים</strong> לצמיתות<br>ממבנים, רכבים ועוד</p>
+
+    <a class="cta-btn" href="https://wa.me/972502977730?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%95%D7%9E%D7%97%D7%99%D7%A8" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+      </svg>
+      צור קשר בוואטסאפ
+    </a>
+    <p class="cta-sub">מענה מהיר · ללא התחייבות</p>
+
+    <div class="scroll-hint">
+      <span>↓</span>
+      גלה עוד
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- SERVICES -->
+  <section>
+    <p class="section-title">מה אנחנו מטפלים</p>
+    <p class="section-sub">פתרון לכל סוגי הריחות, בכל מקום</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <span class="service-icon">🚗</span>
+        <span class="service-name">רכבים פרטיים<br>ומסחריים</span>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🏠</span>
+        <span class="service-name">דירות ובתים</span>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🏢</span>
+        <span class="service-name">משרדים ומסחר</span>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🚌</span>
+        <span class="service-name">אוטובוסים<br>ורכבים גדולים</span>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🏨</span>
+        <span class="service-name">מלונות<br>ונכסי השכרה</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- OZONE TECH -->
+  <section>
+    <div class="ozone-box">
+      <span class="ozone-icon">⚡</span>
+      <h3>מחולל אוזון – הטכנולוגיה שמשנה הכל</h3>
+      <p>
+        גז האוזון חודר לכל פינה וסדק, מחטא ומסלק ריחות רעים עד לשורש הבעיה –
+        ללא ריחות כיסוי, ללא כימיקלים. הפתרון היחיד שעובד לצמיתות.
+      </p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- HOW IT WORKS -->
+  <section>
+    <p class="section-title">איך זה עובד</p>
+    <p class="section-sub">תהליך פשוט, תוצאה מרשימה</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-text">
+          <h3>יצירת קשר</h3>
+          <p>שולחים הודעה בוואטסאפ, מתאמים זמן נוח.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-text">
+          <h3>הגעה וטיפול</h3>
+          <p>הצוות מגיע אליך, מפעיל את מחולל האוזון בסביבה האטומה.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-text">
+          <h3>תוצאה מיידית</h3>
+          <p>לאחר הטיפול – ריח טרי ונקי. ללא שאריות, ללא עשן.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- WHY US -->
+  <section>
+    <p class="section-title">למה המבריק</p>
+    <p class="section-sub">הבחירה של אלפי לקוחות מרוצים</p>
+    <div class="why-list">
+      <div class="why-item"><span class="why-icon">✅</span> טיפול יסודי עד השורש – לא רק ריח כיסוי</div>
+      <div class="why-item"><span class="why-icon">⚡</span> הגעה מהירה ועבודה יעילה</div>
+      <div class="why-item"><span class="why-icon">🌿</span> ידידותי לסביבה וללא כימיקלים מסוכנים</div>
+      <div class="why-item"><span class="why-icon">💰</span> מחירים הוגנים ושקיפות מלאה</div>
+      <div class="why-item"><span class="why-icon">🏆</span> ניסיון מוכח בסוגי ריחות רבים</div>
+    </div>
+  </section>
+
+  <!-- CTA BOTTOM -->
+  <div class="cta-section">
+    <h2>רוצה <span>לנשום נקי</span>?</h2>
+    <p>השאר פרטים ונחזור אליך עם הצעת מחיר תוך דקות</p>
+    <a class="cta-btn" href="https://wa.me/972502977730?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%95%D7%9E%D7%97%D7%99%D7%A8" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+      </svg>
+      שלח הודעה בוואטסאפ
+    </a>
+  </div>
+
+  <footer>
+    © 2025 <span>המבריק</span> · כל הזכויות שמורות
+  </footer>
+
+</body>
+</html>
