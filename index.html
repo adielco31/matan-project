@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>המבריק – הסרת ריחות מקצועית</title>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;600;700;900&display=swap');
 
@@ -112,9 +113,15 @@
     }
 
     .logo-icon {
-      font-size: 3.5rem;
       filter: drop-shadow(0 0 20px rgba(201,168,76,0.5));
       animation: floatIcon 4s ease-in-out infinite;
+    }
+
+    .logo-icon svg {
+      width: 3.8rem;
+      height: 3.8rem;
+      color: var(--gold);
+      stroke-width: 1.5;
     }
 
     @keyframes floatIcon {
@@ -295,9 +302,16 @@
     }
 
     .service-icon {
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
-      display: block;
+      margin-bottom: 0.6rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .service-icon svg {
+      width: 2.2rem;
+      height: 2.2rem;
+      color: var(--gold);
+      stroke-width: 1.5;
     }
 
     .service-name {
@@ -370,8 +384,15 @@
     }
 
     .why-icon {
-      font-size: 1.3rem;
       flex-shrink: 0;
+      display: flex;
+    }
+
+    .why-icon svg {
+      width: 1.4rem;
+      height: 1.4rem;
+      color: var(--gold);
+      stroke-width: 2;
     }
 
     /* ─── OZONE HIGHLIGHT ─── */
@@ -384,9 +405,16 @@
     }
 
     .ozone-box .ozone-icon {
-      font-size: 3rem;
-      display: block;
+      display: flex;
+      justify-content: center;
       margin-bottom: 0.8rem;
+    }
+
+    .ozone-box .ozone-icon svg {
+      width: 3.2rem;
+      height: 3.2rem;
+      color: var(--gold);
+      stroke-width: 1.4;
     }
 
     .ozone-box h3 {
@@ -514,7 +542,7 @@
     <div class="badge">טכנולוגיית אוזון מתקדמת</div>
 
     <div class="logo-wrap">
-      <div class="logo-icon">✨</div>
+      <div class="logo-icon"><i data-lucide="sparkles"></i></div>
     </div>
 
     <h1>המבריק</h1>
@@ -543,23 +571,23 @@
     <p class="section-sub">פתרון לכל סוגי הריחות, בכל מקום</p>
     <div class="services-grid">
       <div class="service-card">
-        <span class="service-icon">🚗</span>
+        <span class="service-icon"><i data-lucide="car"></i></span>
         <span class="service-name">רכבים פרטיים<br>ומסחריים</span>
       </div>
       <div class="service-card">
-        <span class="service-icon">🏠</span>
+        <span class="service-icon"><i data-lucide="home"></i></span>
         <span class="service-name">דירות ובתים</span>
       </div>
       <div class="service-card">
-        <span class="service-icon">🏢</span>
+        <span class="service-icon"><i data-lucide="building-2"></i></span>
         <span class="service-name">משרדים ומסחר</span>
       </div>
       <div class="service-card">
-        <span class="service-icon">🚌</span>
+        <span class="service-icon"><i data-lucide="bus"></i></span>
         <span class="service-name">אוטובוסים<br>ורכבים גדולים</span>
       </div>
       <div class="service-card">
-        <span class="service-icon">🏨</span>
+        <span class="service-icon"><i data-lucide="hotel"></i></span>
         <span class="service-name">מלונות<br>ונכסי השכרה</span>
       </div>
     </div>
@@ -570,7 +598,7 @@
   <!-- OZONE TECH -->
   <section>
     <div class="ozone-box">
-      <span class="ozone-icon">⚡</span>
+      <span class="ozone-icon"><i data-lucide="atom"></i></span>
       <h3>מחולל אוזון – הטכנולוגיה שמשנה הכל</h3>
       <p>
         גז האוזון (O₃) חודר לכל פינה וסדק, מגיב ישירות עם מולקולות הריח ומפרק אותן לחלוטין.
@@ -651,11 +679,11 @@
     <p class="section-title">למה המבריק</p>
     <p class="section-sub">הבחירה של אלפי לקוחות מרוצים</p>
     <div class="why-list">
-      <div class="why-item"><span class="why-icon">✅</span> טיפול יסודי עד השורש – לא רק ריח כיסוי</div>
-      <div class="why-item"><span class="why-icon">⚡</span> הגעה מהירה ועבודה יעילה</div>
-      <div class="why-item"><span class="why-icon">🌿</span> ידידותי לסביבה וללא כימיקלים מסוכנים</div>
-      <div class="why-item"><span class="why-icon">💰</span> מחירים הוגנים ושקיפות מלאה</div>
-      <div class="why-item"><span class="why-icon">🏆</span> ניסיון מוכח בסוגי ריחות רבים</div>
+      <div class="why-item"><span class="why-icon"><i data-lucide="shield-check"></i></span> טיפול יסודי עד השורש – לא רק ריח כיסוי</div>
+      <div class="why-item"><span class="why-icon"><i data-lucide="zap"></i></span> הגעה מהירה ועבודה יעילה</div>
+      <div class="why-item"><span class="why-icon"><i data-lucide="leaf"></i></span> ידידותי לסביבה וללא כימיקלים מסוכנים</div>
+      <div class="why-item"><span class="why-icon"><i data-lucide="banknote"></i></span> מחירים הוגנים ושקיפות מלאה</div>
+      <div class="why-item"><span class="why-icon"><i data-lucide="trophy"></i></span> ניסיון מוכח בסוגי ריחות רבים</div>
     </div>
   </section>
 
@@ -675,5 +703,6 @@
     © 2025 <span>המבריק</span> · כל הזכויות שמורות
   </footer>
 
+  <script>lucide.createIcons();</script>
 </body>
 </html>
