@@ -131,9 +131,22 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.3rem;
       text-shadow: none;
       position: relative;
+    }
+
+    .owner-name {
+      font-size: clamp(1rem, 4vw, 1.2rem);
+      font-weight: 400;
+      color: #999;
+      margin-bottom: 1.4rem;
+      letter-spacing: 0.05em;
+    }
+
+    .owner-name span {
+      color: var(--gold);
+      font-weight: 600;
     }
 
     .tagline {
@@ -389,6 +402,65 @@
       line-height: 1.6;
     }
 
+    .ozone-facts {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.8rem;
+      margin-top: 1.4rem;
+    }
+
+    .ozone-fact {
+      background: rgba(0,0,0,0.3);
+      border: 1px solid rgba(201,168,76,0.15);
+      border-radius: 12px;
+      padding: 0.9rem 0.7rem;
+      text-align: center;
+    }
+
+    .ozone-fact .fact-num {
+      font-size: 1.4rem;
+      font-weight: 900;
+      color: var(--gold-light);
+      display: block;
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+
+    .ozone-fact .fact-label {
+      font-size: 0.72rem;
+      color: #888;
+      line-height: 1.3;
+    }
+
+    .smells-section {
+      margin-top: 1.5rem;
+    }
+
+    .smells-title {
+      font-size: 0.8rem;
+      color: var(--gold);
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-align: center;
+      margin-bottom: 0.8rem;
+    }
+
+    .smells-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+    }
+
+    .smell-tag {
+      background: rgba(201,168,76,0.08);
+      border: 1px solid rgba(201,168,76,0.2);
+      color: #ccc;
+      font-size: 0.76rem;
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+    }
+
     /* ─── CTA BOTTOM ─── */
     .cta-section {
       background: linear-gradient(180deg, transparent, rgba(201,168,76,0.06));
@@ -446,7 +518,8 @@
     </div>
 
     <h1>המבריק</h1>
-    <p class="tagline">הסרת <strong>ריחות רעים</strong> לצמיתות<br>ממבנים, רכבים ועוד</p>
+    <p class="owner-name">– <span>מתן כהן</span> –</p>
+    <p class="tagline">הסרת <strong>ריחות רעים</strong><br>(נטרול ריחות…)</p>
 
     <a class="cta-btn" href="https://wa.me/972502977730?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%95%D7%9E%D7%97%D7%99%D7%A8" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -500,9 +573,43 @@
       <span class="ozone-icon">⚡</span>
       <h3>מחולל אוזון – הטכנולוגיה שמשנה הכל</h3>
       <p>
-        גז האוזון חודר לכל פינה וסדק, מחטא ומסלק ריחות רעים עד לשורש הבעיה –
-        ללא ריחות כיסוי, ללא כימיקלים. הפתרון היחיד שעובד לצמיתות.
+        גז האוזון (O₃) חודר לכל פינה וסדק, מגיב ישירות עם מולקולות הריח ומפרק אותן לחלוטין.
+        בניגוד לספריי או מטהרי אוויר – האוזון לא מכסה את הריח אלא <strong style="color:var(--gold-light)">מבטל אותו לצמיתות</strong>,
+        ללא כימיקלים וללא שאריות.
       </p>
+
+      <div class="ozone-facts">
+        <div class="ozone-fact">
+          <span class="fact-num">3,000×</span>
+          <span class="fact-label">חזק יותר מכלור בחיטוי</span>
+        </div>
+        <div class="ozone-fact">
+          <span class="fact-num">99.9%</span>
+          <span class="fact-label">הסרת חיידקים וריחות</span>
+        </div>
+        <div class="ozone-fact">
+          <span class="fact-num">0</span>
+          <span class="fact-label">כימיקלים מסוכנים</span>
+        </div>
+        <div class="ozone-fact">
+          <span class="fact-num">1-3h</span>
+          <span class="fact-label">זמן טיפול ממוצע</span>
+        </div>
+      </div>
+
+      <div class="smells-section">
+        <p class="smells-title">ריחות שאנחנו מנטרלים</p>
+        <div class="smells-tags">
+          <span class="smell-tag">עשן סיגריות</span>
+          <span class="smell-tag">עובש ולחות</span>
+          <span class="smell-tag">חיות מחמד</span>
+          <span class="smell-tag">שריפה</span>
+          <span class="smell-tag">ריח בשר ודגים</span>
+          <span class="smell-tag">ביוב</span>
+          <span class="smell-tag">ריח ישן</span>
+          <span class="smell-tag">וכל שאר הריחות</span>
+        </div>
+      </div>
     </div>
   </section>
 
