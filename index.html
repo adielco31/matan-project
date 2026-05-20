@@ -539,6 +539,73 @@
       padding: 1.1rem 2rem;
     }
 
+    /* ─── FAQ ─── */
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+
+    .faq-item {
+      background: var(--dark3);
+      border: 1px solid rgba(201,168,76,0.12);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    .faq-item.open {
+      border-color: rgba(201,168,76,0.3);
+    }
+
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      color: var(--text);
+      font-family: 'Heebo', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 600;
+      text-align: right;
+      padding: 1rem 1.1rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.8rem;
+      line-height: 1.4;
+    }
+
+    .faq-question svg {
+      flex-shrink: 0;
+      width: 1rem;
+      height: 1rem;
+      color: var(--gold);
+      transition: transform 0.3s ease;
+    }
+
+    .faq-item.open .faq-question svg {
+      transform: rotate(180deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.3s ease;
+    }
+
+    .faq-item.open .faq-answer {
+      max-height: 300px;
+    }
+
+    .faq-answer p {
+      padding: 0 1.1rem 1.1rem;
+      font-size: 0.84rem;
+      color: #aaa;
+      line-height: 1.7;
+      border-top: 1px solid rgba(201,168,76,0.1);
+      padding-top: 0.8rem;
+    }
+
     /* ─── FOOTER ─── */
     footer {
       padding: 1.5rem;
@@ -705,6 +772,57 @@
     </div>
   </section>
 
+  <div class="divider"></div>
+
+  <!-- FAQ -->
+  <section>
+    <p class="section-title">שאלות נפוצות</p>
+    <p class="section-sub">כל מה שרצית לדעת על הסרת ריחות</p>
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-question">
+          כמה עולה הסרת ריחות באוזון?
+          <i data-lucide="chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>המחיר תלוי בגודל השטח וסוג הריח. טיפול ברכב מתחיל ממחירים נגישים, וטיפול בדירה או מבנה מחושב לפי מטר. אנחנו מספקים הצעת מחיר מדויקת בחינם – פשוט שלחו לנו הודעה בוואטסאפ.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          האם הטיפול באוזון בטוח לבני אדם וחיות מחמד?
+          <i data-lucide="chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>הטיפול מתבצע כשהחדר או הרכב סגורים לחלוטין וללא אנשים או חיות בפנים. גז האוזון מתפזר באופן טבעי תוך כ-30–60 דקות לאחר סיום הטיפול, ולאחר מכן ניתן להיכנס בבטחה מלאה.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          כמה זמן לוקח הטיפול ומתי אפשר לחזור?
+          <i data-lucide="chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>הטיפול עצמו אורך בין שעה לשלוש שעות, בהתאם לגודל השטח וחומרת הריח. לאחר סיום הטיפול ממתינים כ-30–60 דקות לאוורור, ואז ניתן לחזור ולהשתמש בחלל כרגיל – ריח נקי ורענן.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          האם הסרת הריחות עובדת לצמיתות?
+          <i data-lucide="chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>כן. בניגוד לספריי ומטהרי אוויר שמכסים את הריח באופן זמני, גז האוזון מפרק את מולקולות הריח ברמה הכימית. התוצאה היא נטרול מלא ולצמיתות – כל עוד מקור הריח עצמו הוסר (למשל עובש, עישון וכו').</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
   <!-- CTA BOTTOM -->
   <div class="cta-section">
     <h2>רוצה <span>לנשום נקי</span>?</h2>
@@ -721,6 +839,59 @@
     © 2025 <span>המבריק</span> · כל הזכויות שמורות
   </footer>
 
-  <script>lucide.createIcons();</script>
+  <script>
+    lucide.createIcons();
+
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+  </script>
+
+  <!-- Schema.org FAQPage – עוזר לגוגל להציג את השאלות ישירות בתוצאות החיפוש -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "כמה עולה הסרת ריחות באוזון?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "המחיר תלוי בגודל השטח וסוג הריח. טיפול ברכב מתחיל ממחירים נגישים, וטיפול בדירה או מבנה מחושב לפי מטר. אנחנו מספקים הצעת מחיר מדויקת בחינם – פשוט שלחו לנו הודעה בוואטסאפ."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "האם הטיפול באוזון בטוח לבני אדם וחיות מחמד?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "הטיפול מתבצע כשהחדר או הרכב סגורים לחלוטין וללא אנשים או חיות בפנים. גז האוזון מתפזר באופן טבעי תוך כ-30–60 דקות לאחר סיום הטיפול, ולאחר מכן ניתן להיכנס בבטחה מלאה."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "כמה זמן לוקח הטיפול ומתי אפשר לחזור?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "הטיפול עצמו אורך בין שעה לשלוש שעות, בהתאם לגודל השטח וחומרת הריח. לאחר סיום הטיפול ממתינים כ-30–60 דקות לאוורור, ואז ניתן לחזור ולהשתמש בחלל כרגיל."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "האם הסרת הריחות עובדת לצמיתות?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "כן. בניגוד לספריי ומטהרי אוויר שמכסים את הריח באופן זמני, גז האוזון מפרק את מולקולות הריח ברמה הכימית. התוצאה היא נטרול מלא ולצמיתות."
+        }
+      }
+    ]
+  }
+  </script>
 </body>
 </html>
